@@ -5,26 +5,31 @@ import java.util.Scanner;
 public class Area {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter a radius: ");
-
         String userInput;
         double userInputDouble;
+
+        System.out.print("Enter a radius: ");
+
         while (true) {
-            userInput = input.nextLine();
-            if (userInput.equals("") || userInput.contains(" ")) {
-                System.out.print("Input was empty or invalid. Please enter a valid, positive number: ");
-                continue;
-            }
             try {
-                userInputDouble = Double.parseDouble(userInput);
+                userInput = input.nextLine();
+
+                if (userInput.equals("")) {
+                    System.out.print("Your input for the radius was empty. Please enter a valid, positive number: ");
+                    continue;
+                }
+
+                userInputDouble = Double.parseDouble(userInput); //This line is where the try-catch statement "catches" the NumberFormatException error in case the userInput isn't a number type.
+
                 if (userInputDouble >= 0) {
-                    break;
+                    break; //A friend told me using breaks can be a bad practice. Not sure if that applies here but the code works. Please correct me if this is improper.
                 }
                 else {
-                    System.out.print("Input was negative. Please enter a valid, positive number: ");
+                    System.out.print("Your input for the radius was negative. Please enter a valid, positive number: ");
                 }
+
             } catch (NumberFormatException e) {
-                System.out.print("Input was of the wrong type. Please enter a valid, positive number: ");
+                System.out.print("Your input for the radius was either empty or contained illegal characters. Please enter a valid, positive number: ");
             }
         }
 
