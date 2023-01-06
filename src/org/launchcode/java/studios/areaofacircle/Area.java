@@ -1,34 +1,35 @@
 package org.launchcode.java.studios.areaofacircle;
 
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 public class Area {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a radius: ");
 
-        Double userRadius = null;
-        while (userRadius == null) {
+        String userInput;
+        double userInputDouble;
+        while (true) {
+            userInput = input.nextLine();
+            if (userInput.equals("") || userInput.contains(" ")) {
+                System.out.print("Input was empty or invalid. Please enter a valid, positive number: ");
+                continue;
+            }
             try {
-                userRadius = input.nextDouble();
-                if (userRadius == null) {
-                    System.out.print("Input was invalid. Please enter a valid, positive number: ");
+                userInputDouble = Double.parseDouble(userInput);
+                if (userInputDouble > 0) {
+                    break;
                 }
-                if (userRadius < 0) {
-                    System.out.print("Input was invalid. Please enter a valid, positive number: ");
-                    userRadius = null;
+                else {
+                    System.out.print("Input was negative. Please enter a valid, positive number: ");
                 }
-            } catch (InputMismatchException e) {
-                System.out.print("Input was invalid. Please enter a valid, positive number: ");
-                input.next();
+            } catch (NumberFormatException e) {
+                System.out.print("Input was of the wrong type. Please enter a valid, positive number: ");
             }
         }
 
         input.close();
-        //double area = 3.14 * userRadius * userRadius;
-        //double area = Circle.getArea(userRadius);
-        System.out.println("The area of a circle of radius "
-                            + userRadius + " is: " + (Circle.getArea(userRadius)));
+
+        System.out.println("The area of a circle of radius " + userInputDouble + " is: " + (Circle.getArea(userInputDouble)));
     }
 }
