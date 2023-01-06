@@ -17,7 +17,7 @@ public class Area {
             }
             try {
                 userInputDouble = Double.parseDouble(userInput);
-                if (userInputDouble > 0) {
+                if (userInputDouble >= 0) {
                     break;
                 }
                 else {
