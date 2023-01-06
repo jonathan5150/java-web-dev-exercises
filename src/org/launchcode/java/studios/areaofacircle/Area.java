@@ -12,9 +12,12 @@ public class Area {
         while (userRadius == null) {
             try {
                 userRadius = input.nextDouble();
+                if (userRadius == null) {
+                    System.out.print("Input was invalid. Please enter a valid, positive number: ");
+                }
                 if (userRadius < 0) {
                     System.out.print("Input was invalid. Please enter a valid, positive number: ");
-                    input.nextDouble();
+                    userRadius = null;
                 }
             } catch (InputMismatchException e) {
                 System.out.print("Input was invalid. Please enter a valid, positive number: ");
