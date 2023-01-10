@@ -8,7 +8,7 @@ public class Area {
         String userInput;
         double userInputDouble;
 
-        System.out.print("Enter a rus: ");
+        System.out.print("Enter a radius: ");
 
         while (true) {
             try {
