@@ -22,7 +22,7 @@ public class Area {
                 userInputDouble = Double.parseDouble(userInput); //This line is where the try-catch statement "catches" the NumberFormatException error in case the userInput isn't a number type.
 
                 if (userInputDouble >= 0) {
-                    break; //A friend told me using breaks can be a bad practice. Not sure if that applies here but the code works. Please correct me if this is improper.
+                    break; 
                 }
                 else {
                     System.out.print("Your input for the radius was negative. Please enter a valid, positive number: ");
